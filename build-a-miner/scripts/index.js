@@ -12,6 +12,8 @@ function addTransaction(transaction) {
 
 function mine() {
     // TODO: mine a block
+    const block = {id: blocks.length}
+    blocks.push(block)
 }
 
 export {
