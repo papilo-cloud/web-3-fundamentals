@@ -26,3 +26,16 @@
 - Inside the mine function, pull transactions off the mempool and include them in the block in an array called transactions
 - Remove each transaction you include in the block from the mempool
 - Add the transactions array to the block before hashing the block
+
+## 5. Target Difficulty
+### Your Goal: Proof of Work
+- Now it's time to actually mine the block. This is where we get the work part of proof of work!
+
+- In the mine function, prior to hashing the block, add a nonce property. This property should start at 0
+- Keep changing the nonce until you find a hash that is less than the TARGET_DIFFICULTY
+
+- You can compare a BigInt to another BigInt using the JavaScript comparison operators. You can convert from a hash to be a BigInt by:
+```javascript
+    const hash = SHA256("example");
+    const int = BigInt(`0x${hash}`);
+```

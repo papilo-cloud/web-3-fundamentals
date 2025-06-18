@@ -16,8 +16,17 @@ function mine() {
     while (tx.length < MAX_TRANSACTIONS && mempool.length > 0) {
         tx.push(mempool.pop())
     }
-    const block = {id: blocks.length, transactions: tx}
-    const hash = SHA256(JSON.stringify(block))
+    const block = {id: blocks.length, transactions: tx, nonce: 0}
+    let hash;
+
+    while (true) {
+        hash = SHA256(JSON.stringify(block))
+        const int = BigInt(`0x${hash}`)
+        if (int < TARGET_DIFFICULTY) {
+            break;
+        }
+        block.nonce++
+    }
     blocks.push({...block, hash})
 }
 
