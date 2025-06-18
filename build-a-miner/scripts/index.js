@@ -12,16 +12,14 @@ function addTransaction(transaction) {
 
 function mine() {
     // TODO: mine a block
-    const block = {id: blocks.length}
+    let tx = []
+    while (tx.length < MAX_TRANSACTIONS && mempool.length > 0) {
+        tx.push(mempool.pop())
+    }
+    const block = {id: blocks.length, transactions: tx}
     const hash = SHA256(JSON.stringify(block))
-    block.hash = hash;
-    blocks.push(block)
+    blocks.push({...block, hash})
 }
-
-const tx = {to: 'Bob', sender: 'Alice'}
-const ans = addTransaction(tx)
-
-console.log(first)
 
 export {
     TARGET_DIFFICULTY,
@@ -31,3 +29,4 @@ export {
     blocks,
     mempool
 };
+
