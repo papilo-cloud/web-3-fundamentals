@@ -51,6 +51,7 @@ console.log(blockchain.chain.length); // 2
 - Add a `previousHash` property to each block. The value of this property should be the hash of the block **before it** in the chain.
 - Use this `previousHash` property in the calculation of the block's hash.
 
+> **Hints**
 - A good spot to add the `previousHash` property on the block would be in the `addBlock` function, where a block is placed on the chain.
 - So far, the `Block` class in your `Block.js` file does not yet contain a `previousHash` property and currently only hashes `this.data` of a block - you must also include the block's `this.previousHash` property in the `toHash` function!
 - You are importing `Block.js` into `Blockchain.js`; this import includes the `toHash()` function!
@@ -58,3 +59,8 @@ console.log(blockchain.chain.length); // 2
 ```js
 const hash = SHA256("dog" + "cat"); // hash of dog and cat together
 ```
+
+## 6: Validating the Chain
+### Your Goal: Create an isValid Function
+1. Create a function called `isValid` on our `Blockchain` that will return `true` or `false` if a block is valid or invalid respectively
+1. `isValid` should check the integrity of every block in its chain by looking at each block's `previousHash` field and making sure that it is equal to the hash of the block before it
