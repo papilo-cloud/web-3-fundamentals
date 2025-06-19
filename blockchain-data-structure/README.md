@@ -8,7 +8,7 @@
 
 ## 2: What's in a Hash?
 **Adding Data to the Hash**
-## Your Goal: Hash the Data
+### Your Goal: Hash the Data
 - When creating a new block, data will be passed to its constructor:
 
 ```js
@@ -20,3 +20,9 @@ console.log( block.data ); // Alice sent Bob 1 BTC
 
 1. Add a constructor to our `Block` class that takes one argument `data` and assigns it to `this.data`
 1. Once you have added data to the `block`, use this data to calculate the block's hash in the `toHash` function!
+
+## 3: The Genesis Block
+### Your Goal: Add the Genesis Block
+- The Blockchain.js file contains the Blockchain class with a chain array. Let's add the Genesis Block to this array.
+
+- Create a new Block in the Blockchain constructor then add it to the chain array.
