@@ -35,3 +35,7 @@ console.log( txo.spent ); // true
 ###  Your Goal: Ensure Sufficient Input
 1. Let's make sure that the `inputUTXOs` have enough total value in them to cover the total value of the `outputUTXOs`.
 2. If the total value of the inputs **is less than** the total value of the outputs, throw an error in the `execute` function.
+
+## 4: Successful Execute
+### Your Goal: Mark Inputs as Spent
+- If no errors are thrown during the `execute` function of the transaction, then it is successful! 
