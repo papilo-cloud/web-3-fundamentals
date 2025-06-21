@@ -19,3 +19,14 @@ txo.spend();
 console.log( txo.spent ); // true
 ```
 - Notice how `spent` is initially `false` when we create the new TXO. After invoking the `spend` function, `spent` should be set to `true`.
+
+## 2: Spent TXOs
+### Your Goal: Ensure Inputs are UTXOs
+- On this stage, we introduce a new file `Transaction.js`.
+
+- In the `Transaction` constructor you'll see two arguments passed in: `inputUTXOs` and `outputUTXOs`. Both of these objects are arrays containing instances of transaction outputs.
+
+1. Store `inputUTXOs` and `outputUTXOs` on the transaction object.
+2. In the `execute` function do one thing for now: ensure that none of the `inputUTXOs` are already spent. We can't allow double-spending TXOs!
+3. Throw an error in `execute` if any input TXO is already spent.
+> The terminology between UTXO and TXO can sometimes get confusing. Remember that a TXO is just the nomenclature for a UTXO that is **already spent!**
