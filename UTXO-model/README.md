@@ -30,3 +30,8 @@ console.log( txo.spent ); // true
 2. In the `execute` function do one thing for now: ensure that none of the `inputUTXOs` are already spent. We can't allow double-spending TXOs!
 3. Throw an error in `execute` if any input TXO is already spent.
 > The terminology between UTXO and TXO can sometimes get confusing. Remember that a TXO is just the nomenclature for a UTXO that is **already spent!**
+
+## 3: Sufficient Amount
+###  Your Goal: Ensure Sufficient Input
+1. Let's make sure that the `inputUTXOs` have enough total value in them to cover the total value of the `outputUTXOs`.
+2. If the total value of the inputs **is less than** the total value of the outputs, throw an error in the `execute` function.
