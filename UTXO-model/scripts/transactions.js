@@ -14,11 +14,14 @@ class Transaction {
         let outputAmount = this.outputUTXOs.reduce((a, b) => a + b.amount, 0)
         if (inputAmount < outputAmount) {
             throw new Error("Not enough BTC");
+        } else {
+            this.fee = inputAmount - outputAmount;
         }
     }
 }
 
 export default Transaction;
+
 
 // const tx1 = new TXO('12345', 100)
 // const tx2 = new TXO('23458', 10)
