@@ -47,3 +47,17 @@ Let's add a `getProof` method to our `MerkleTree` class. This function will take
 The Merkle Proof will be an array of objects with the properties `data` (the hash) and `left` (a boolean indicating if the hash is on the left).
 
 > If you get stuck be sure to check out our Recommended Approach.
+
+## 5: Verify your Proof
+### Your Goal: Complete Verify Proof
+- The function `verifyProof` takes four parameters: `proof`, `node`, `root` and `concat`.
+
+- Here are their definitions:
+
+1. `proof` - An array of objects whose properties are `data` and `left`. (The `proof` you created in the previous stage)
+1. `node` - A leaf `node` we're trying to prove is within the merkle tree.
+1. `root` - The valid Merkle `Root`.
+1. `concat` - The method used to combine the leaf nodes.
+- Take the `node` and combine it with all the data provided in the `proof`.
+
+At this point you'll have your own `root` derived from the `node` and the `proof`. Compare this to the true `root` with `===` to see if they match.
