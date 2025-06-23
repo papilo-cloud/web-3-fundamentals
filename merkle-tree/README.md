@@ -1,5 +1,59 @@
 # MERKLE TREE
 
+## 1: Combine Two Leaves
+### Your Goal: Root of Two Leaves
+- First, let's write a constructor for the `MerkleTree` class. This constructor will take two arguments passed in this order:
+
+1. An **array** of leaf nodes
+1. A combination **function** used to concatenate and hash **two leaves **together
+
+- Next, let's add a function `getRoot` on the `MerkleTree` class. This function will find the merkle root.
+
+For this stage you will only need to take two leaves and hash them together:
+<pre>
+    Root
+    /  \ 
+   A    B
+  </pre>
+- Here, A and B are the leaf nodes and the root is the result of the concatenation. Simply take the first and second leaf nodes and use the concatenate function to get the result.
+
+## 2: Multiple Layers
+### Your Goal: Handle Bigger Trees
+- Update the `getRoot` function to handle merkle trees with more than two leaf nodes.
+
+- When breaking down the logic of merkle trees, first we hash together `A` and `B`, then we hash together `C` and `D`. Then we hash together the combination of `A` and `B` `(AB)` with the combination of `C` and `D` `(CD)`. Something like this:
+<pre>
+    ABCD
+    /  \ 
+   AB  CD
+  / \  / \
+  A B  C D
+</pre>
+- Writing the code you will likely find it useful to think of the tree as having multiple layers:
+
+- The first layer is the leaves (`A`, `B`, `C`, `D`)
+- The second is the combination of both of those combinations (`AB`, `CD`)
+- The last layer is the final combination: the merkle root (`ABCD`)
+- In each layer, we'll need to combine elements two-at-a-time until we reach a layer with just **a single element**. At that point we can stop, knowing we've found the root.
+
+For this stage you'll need to handle a **single leaf node**, **two leaf nodes**, **four leaf nodes** and **eight leaf nodes**.
+
+## 3: Odd Leaves
+### Your Goal: Handle Odd Number of Leaves
+- Let's consider what happens in the case of an **odd number of leaves** in a tree.
+
+- Any time that there is no **right** pair to an element, we're just going to want to carry that leaf one layer up:
+
+<pre>
+    Root
+    / \ 
+   AB  C
+  / \  |
+  A B  C
+</pre>
+
+- In this case we don't use the `C` node until we combine it with `AB` to create the Merkle Root. Let's handle this in our `getRoot` function.
+
 ## 4: Build the Proof
 ### ABCDE Merkle Proof Example
 <pre>
