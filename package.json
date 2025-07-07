@@ -11,7 +11,11 @@
   "type": "module",
   "description": "",
   "dependencies": {
-    "ethereum-cryptography": "^1.1.1"
+    "axios": "^1.10.0",
+    "dotenv": "^17.0.0",
+    "ethereum-cryptography": "^1.1.1",
+    "ethers": "^5.8.0",
+    "hardhat": "^2.25.0"
   },
   "devDependencies": {
     "chai": "^5.2.0",
