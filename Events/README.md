@@ -35,3 +35,7 @@ Ensure that the person calling this function **is the current owner** of the col
     (bool success, ) = anAddress.call{ value: msg.value }("");
     require(success);
 </pre>
+
+## 5: Indexed
+### Your Goal: Index the Addresses
+Modify all the `address` data types in the events to be indexed.
