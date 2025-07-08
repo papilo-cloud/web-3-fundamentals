@@ -62,3 +62,13 @@ This is their role in the escrow transaction, to decide when the funds can be tr
 
 ### Your Goal: Security
 If anyone tries to call `approve` other than the arbiter address, revert the transaction.
+
+## 6: Events
+### Events 
+When the Escrow is approved, the User Interface will want to show some indication.
+
+Let's create an event so it is easy for the interface to subscribe to such an occurrence.
+
+### Your Goal: Approved
+1. Create an event called `Approved` which takes a single `uint` parameter: the balance that is sent to the beneficiary.
+2. Emit this event from within the `approve` function.
