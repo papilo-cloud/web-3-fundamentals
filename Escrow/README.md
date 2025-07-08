@@ -53,3 +53,12 @@ Remember the proper syntax for using `.call()` to send ether:
     (bool sent, ) = _to.call{ value: someValue }("");
     require(sent, "Failed to send ether");
 </pre>
+
+## 5: Security
+### Lock it Down 
+There's only one address that should be able to call the approve method: the **arbiter**. 
+
+This is their role in the escrow transaction, to decide when the funds can be transferred.
+
+### Your Goal: Security
+If anyone tries to call `approve` other than the arbiter address, revert the transaction.
