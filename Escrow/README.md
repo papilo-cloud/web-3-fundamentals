@@ -95,3 +95,16 @@ The constructor arguments to the `deploy` function are passed in like arguments 
 
 3. Additionally, send a 1 Ether deposit to the contract. *Hint: you'll want to specify `value` in your deploy function*
 4. Return the deployment promise.
+
+## 8: Approve TX
+### Approve 
+It's time to create the approve transaction! This will move the deposited funds to the beneficiary address.
+
+We'll need the arbiter to sign this transaction in order for it to work!
+
+### Your Goal: Approve
+1. In the `approve.js` file, call the `approve` function on the Escrow `contract` using the arbiter signer.
+
+    >  Hint : Remember: calling a contract from a specific signer can be done with: `contract.connect(signer).functionName()`
+
+2. Return the transaction promise.
