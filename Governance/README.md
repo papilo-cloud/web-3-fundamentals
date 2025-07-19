@@ -1,4 +1,7 @@
 # VOTING CONTRACT
+
+In this tutorial we're going to build a voting contract! We'll use the lessons learned here to understand how the Governor standard emerged 
+
 ## 1: Proposal
 ### Proposal Storage 
 In this stage we're going to focus on the storage of new proposals.
@@ -35,5 +38,29 @@ Let's allow voters to change their vote. Adding this functionality will require 
 ### Your Goal: Vote Changing
 Modify the `castVote` function to allow voters to change their vote on a particular proposal.
 > The implementation of this is up to you! You'll need to figure out a new way to track which **addresses** have already voted on which proposal.
+
+
+## 4: Voting Events
+### Events
+We'll want to make it easy for the user interface to subscribe to new proposal and voting events! 
+
+Let's add some new events so we can listen closely. 
+
+### Your Goal: Proposal Created & Vote Cast Events
+1. Create an event `ProposalCreated` which takes a single argument: a `uint` proposal ID. Emit this event whenever a new `Proposal` struct is created.
+2. Create an event `VoteCast` which takes two arguments: a `uint` proposal ID and an `address` for the voter's address. Emit this event any time a new vote is cast.
+
+
+## 5: Members
+### Voting Members
+It's important for us to maintain a list of voting members.
+
+After all, it's relatively easy for anyone to make hundreds of Ethereum addresses very quickly and vote with each of these addresses. The only thing stopping them is gas and effort! 
+
+> When a single person operates many accounts it is known as a `Sybil` attack. Any system that is setup to handle this is known to be `sybil` resistant.
+
+### Your Goal: Members
+Create a public `constructor` which takes an array of `address`. These addresses, plus the deployer of the function, should all be allowed to create new proposals and vote on those proposals.
+If anyone else attempts to create a proposal or vote, the transaction should be reverted.
 
 
